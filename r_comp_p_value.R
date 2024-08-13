@@ -13,3 +13,14 @@ t_test_result <- t.test(kmt2d_glucose, kdm6a_glucose)
 p_value <- t_test_result$p.value
 
 print(p_value)
+
+# Check variance assumptions
+t_test_result <- t.test(kmt2d_glucose, kdm6a_glucose, var.equal = TRUE)
+p_value_equal_var <- t_test_result$p.value
+print(p_value_equal_var)
+
+
+# Check normality assumptions
+wilcox_test_result <- wilcox.test(kmt2d_glucose, kdm6a_glucose)
+p_value_wilcox <- wilcox_test_result$p.value
+print(p_value_wilcox)
